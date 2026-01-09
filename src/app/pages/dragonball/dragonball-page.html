@@ -13,7 +13,8 @@
       @for (character of characters(); track character.id) {
       <li> 
         <span>{{ character.name }}</span>
-        <strong class="text-danger"> ({{ character.power }}) </strong>
+        <!-- <strong class="text-danger"> ({{ character.power }}) </strong> esto funciona normalmente --> 
+        <strong  [class.text-danger] = "character.power > 9000" > ({{ character.power }}) </strong>
       </li>
       }
     </ol>
