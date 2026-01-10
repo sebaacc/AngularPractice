@@ -8,13 +8,15 @@ interface Character {
 
 @Component({
   // selector:'app-dragonball', no hace falta ya que va a ser una PÁGINA.
-  templateUrl: './dragonball-page.html',
+  templateUrl: './dragonball-super-page.html',
+  selector: 'dragonball-super'
 })
-export class DragonballComponent {
+export class DragonballSuperPageComponent {
   name = signal('');
   power = signal(0);
   characters = signal<Character[]>([
     { id: 1, name: 'Goku', power: 9001 },
+    { id: 2, name: 'Vegetta', power: 8000 },
   ]);
 
   poweClasses = computed(() => {
@@ -22,10 +24,6 @@ export class DragonballComponent {
       'text-danger': true,
     };
   });
-
-  // addCharacter = computed(() => {
-  //     this.characters().push({id: 5, name: this.name(), power: this.power()})
-  // })
 
   addCharacter() {
     if (!this.name() || !this.power() || this.power() <= 0) return;
