@@ -8,6 +8,5 @@ import type { Character } from '../../../interfaces/character';
 export class DragonBallCharacterList   {
 
   characters = input.required<Character[]>();
-
-
+  listName = input.required<string>();
 }

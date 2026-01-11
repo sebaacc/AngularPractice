@@ -1,0 +1,19 @@
+<h3>Agregar: {{ name() }}</h3>
+<input
+  type="text"
+  class="form-control"
+  placeholder="nombre"
+  [value]="name()"
+  (input)="name.set(txtName.value)"
+  #txtName
+/><!-- si uno invoca variables, la mejor forma es con corchetes -->
+<!-- el change se activa recien cuando se sale del input, en cambio input es en el momento que se termina de oprimir una tecla -->
+<input
+  type="number"
+  class="form-control mt-2"
+  placeholder="poder"
+  [value]="power()"
+  (input)="power.set(numPower.valueAsNumber)"
+  #numPower
+/>
+<button (click)="addCharacter()" class="mt-2 btn btn-primary">Agregar</button>
