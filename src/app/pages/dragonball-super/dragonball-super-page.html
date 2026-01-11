@@ -23,29 +23,6 @@
     <button (click)="addCharacter()" class="mt-2 btn btn-primary">Agregar</button>
   </div>
   <div class="row col-12 col-sm-6">
-    <h3>Listado de los más fuertes:</h3>
-    <ol>
-      @for (character of characters(); track character.id) { @if(character.power > 1500) {
-
-      <li>
-        <span>{{ character.name }}</span>
-        <!-- <strong class="text-danger"> ({{ character.power }}) </strong> esto funciona normalmente -->
-        <strong
-          [class.text-danger]="character.power > 9000"
-          [class.text-info]="character.power < 9000"
-        >
-          ({{ character.power }})
-        </strong>
-      </li>
-      } @else {
-
-      <li>
-        <span>aquí no hay nadie xd</span>
-        
-      </li>
-
-      } }
-    </ol>
-    <!-- se puede poner en el paréntesis del for esto para tener un índice de cada elemento: let idx = $index -->
+    <dragonball-character-list [characters]="characters()"/>
   </div>
 </section>
