@@ -24,18 +24,21 @@ export class DragonballSuperPageComponent {
     };
   });
 
-  addCharacter() {
-    if (!this.name() || !this.power() || this.power() <= 0) return;
+  addCharacter(character: Character) {
+    // if (!this.name() || !this.power() || this.power() <= 0) return;
 
-    const newCharacter: Character = {
-      id: this.characters.length + 1,
-      name: this.name(),
-      power: this.power(),
-    };
+    // const newCharacter: Character = {
+    //   id: this.characters.length + 1,
+    //   name: this.name(),
+    //   power: this.power(),
+    // };
 
-    //this.characters().push(newCharacter) //Tratar de NO usar estos métodos para actualizar listas, sino un Update
-    this.characters.update((list) => [...list, newCharacter]);
-    this.resetFields();
+    // //this.characters().push(newCharacter) //Tratar de NO usar estos métodos para actualizar listas, sino un Update
+    // this.characters.update((list) => [...list, newCharacter]);
+    // this.resetFields(); --> esto ya no es necesario, ahora lo manejamos desde otro componente
+    this.characters.update(
+      list => [...list, character]
+    )
   }
   
   resetFields(){
